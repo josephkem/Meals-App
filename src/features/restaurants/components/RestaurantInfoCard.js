@@ -8,15 +8,27 @@ const RestaurantCard = styled(Card)`
 `;
 
 const Title = styled.Text`
-  font-family: ${(props) => props.theme.fonts.body}
-  padding: ${(props) => props.theme.space[3]};
+  font-family: ${(props) => props.theme.fonts.heading}
+  font-size: ${(props) => props.theme.fontSizes.body}
   color: ${(props) => props.theme.colors.ui.primary};
+`;
+
+const Info = styled.View`
+  padding: ${(props) => props.theme.space[3]};
+`;
+
+const Address = styled.Text`
+font-family: ${(props) => props.theme.fonts.body}
+font-size: ${(props) => props.theme.fontSizes.caption}
 `;
 
 function RestaurantinfoCard() {
   return (
     <RestaurantCard elevation={5} style={styles.card}>
-      <Title>Name</Title>
+      <Info>
+        <Title>Name</Title>
+        <Address>300 Elm Street</Address>
+      </Info>
     </RestaurantCard>
   );
 }
