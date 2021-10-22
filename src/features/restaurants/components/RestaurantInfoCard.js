@@ -19,6 +19,12 @@ const Info = styled.View`
   padding: ${(props) => props.theme.space[3]};
 `;
 
+const Rating = styled.View`
+  flex-direction: row;
+  padding-top: ${(props) => props.theme.space[2]}
+  padding-bottom: ${(props) => props.theme.space[2]}
+`;
+
 const Address = styled.Text`
 font-family: ${(props) => props.theme.fonts.body}
 font-size: ${(props) => props.theme.fontSizes.caption}
@@ -34,11 +40,19 @@ function RestaurantInfoCard({ restaurant = {} }) {
     rating = 4,
     isClosedTemporarily,
   } = restaurant;
+
+  const ratingArray = Array.from(new Array(Math.floor(rating)));
+  console.log(ratingArray);
   return (
     <RestaurantCard elevation={5} style={styles.card}>
       <Info>
         <Title>{name}</Title>
-        <SvgXml xml={star} width={20} height={20} />
+        <Rating>
+          {ratingArray.map(() => (
+            <SvgXml xml={star} width={20} height={20} />
+          ))}
+        </Rating>
+
         <Address>{address}</Address>
       </Info>
     </RestaurantCard>
